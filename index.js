@@ -13,6 +13,11 @@ app.use(express.static(path.join(__dirname,"public")));
 
 app.use(express.urlencoded({extended:true}));
 
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'))
+
+
+
 
 app.listen(port,()=>{
     console.log(`port listening at port number: ${port}`);
@@ -79,7 +84,50 @@ app.get("/posts/:id",((req,res)=>{
     if(!post){
         res.send("Post Not Found");
     }
-}))
+}));
+
+// app.patch("/posts/:id",(req,res)=>{
+//     let {id} = req.params;
+//     // this is uuid
+//     let newContent = req.body.content;
+//     console.log(newContent);
+    
+//     // let post = posts.find((post)=> id === post.id );  
+//     // post.content = newContent;
+//     // console.log(post);
+//     res.send("path working properly!!!");
+    
+
+// })
+
+
+app.patch("/posts/:id", (req, res) => {
+    let { id } = req.params;
+    let newContent = req.body.content;
+
+    let post = posts.find((post) => post.id === id);
+
+    if (post) {
+        post.content = newContent;
+        // res.send(newContent);
+        console.log(newContent);
+        res.redirect("/posts");
+        
+    } else {
+        res.status(404).send("Post Not Found");
+    }
+});
+
+
+app.get("/posts/:id/edit",(req,res)=>{
+    let {id} = req.params;
+    let post = posts.find((post) => post.id === id);
+
+    res.render("edit.ejs", { post });
+})
+
+
+
 
 
 
