@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Share Factory</title>
+</head>
+<body>
+    <h1>Share Factory</h1>
+    
+    <% for(post of posts){ %>
+        <div class="post">
+            <h3 class="user ">Username : <%= post.username %> </h3>
+        <h5 class="content">Content : <%= post.content %> </h5>
+        <button ><a href="http://localhost:8080/posts/<%= post.id %>">See Post in Detail</a></button>
+        </div>
+        
+    
+    
+    <% } %>
+
+    <button><a href="http://localhost:8080/posts/new">  New Post </a></button>
+</body>
+<script src="/index.js"></script>
+</html>
+

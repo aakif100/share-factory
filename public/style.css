@@ -1,0 +1,21 @@
+body{
+    background-color: bisque;
+}
+
+h1{
+    color: darkred;
+}
+.post{
+    background-color: beige;
+    padding: 15px;
+    margin: 15px;
+}
+
+
+.user{
+    color: salmon;
+}
+
+.content{
+    color: seagreen;
+}
