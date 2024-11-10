@@ -127,6 +127,16 @@ app.get("/posts/:id/edit",(req,res)=>{
 })
 
 
+app.delete("/posts/:id", (req, res) => {
+    let { id } = req.query;
+     posts = posts.filter((post) => post.id !== id);
+    //  up let isnt required as we have to change from the existing post.....
+
+
+    // res.redirect("index.ejs", { posts });
+    res.redirect("/posts");
+
+});
 
 
 
