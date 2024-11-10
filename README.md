@@ -19,10 +19,15 @@ A simple social platform where users can post and share their thoughts, feelings
 ## project-structure
 project-folder/
 ├── views/               # EJS template files for rendering pages
+<br>
 │   ├── index.ejs        # Home page for displaying posts
+<br>
 │   ├── post.ejs         # Individual post view
+<br>
 ├── public/              # Static assets like CSS and images
+<br>
 ├── app.js               # Main application file
+<br>
 └── package.json         # Project metadata and dependencies
 
 ## contributions
